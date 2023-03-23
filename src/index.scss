@@ -15,16 +15,21 @@ a {
   text-decoration: none;
   box-sizing: border-box;
   color: black;
+  transition: all 0.05s ease-in-out;
 }
 
 * {
   box-sizing: border-box;
 }
 
+a:hover {
+  color: dodgerblue;
+}
+
 a:active {
   text-decoration: none;
   box-sizing: border-box;
-  color: dodgerblue;
+  color: rgb(7, 105, 204);
 }
 
 ::-webkit-scrollbar {
