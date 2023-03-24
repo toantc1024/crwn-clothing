@@ -3,7 +3,6 @@ import {
   getCategoriesAndDocuments,
   // addCollectionAndDocument,
 } from "../utils/firebase/firebase.utils";
-import SHOP_DATA from "../shop-data.js";
 
 const CategoriesContext = createContext({
   categoriesMap: {},
@@ -16,7 +15,6 @@ const CategoriesProvider = ({ children }) => {
   useEffect(() => {
     const getCategoryMap = async () => {
       const categoryMap = await getCategoriesAndDocuments();
-      console.log(categoryMap);
       setCategoriesMap(categoryMap);
     };
     getCategoryMap();

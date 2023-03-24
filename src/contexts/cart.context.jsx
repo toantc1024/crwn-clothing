@@ -55,7 +55,6 @@ const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
 
-  console.log(cartTotal);
   useEffect(() => {
     const newCartCount = cartItems.reduce(
       (acc, item) => acc + item.quantity,
