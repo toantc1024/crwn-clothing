@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import {
   getCategoriesAndDocuments,
   // addCollectionAndDocument,
@@ -8,9 +8,39 @@ const CategoriesContext = createContext({
   categoriesMap: {},
 });
 
+const CATEGORIES_ACTION_TYPES = {
+  SET_CATEGORIES_MAP: "SET_CATEGORIES_MAP",
+};
+const INITIAL_STATE = {
+  categoriesMap: {},
+};
+const categoriesReducer = (state, action) => {
+  const { type, payload } = action;
+  console.log("reducer worked!", payload);
+  switch (type) {
+    case CATEGORIES_ACTION_TYPES.SET_CATEGORIES_MAP:
+      return {
+        ...state,
+        categoriesMap: payload,
+      };
+    default:
+      throw new Error("Error handling type of action");
+  }
+};
+
 const CategoriesProvider = ({ children }) => {
-  const [categoriesMap, setCategoriesMap] = useState({});
+  const [{ categoriesMap }, dispatch] = useReducer(
+    categoriesReducer,
+    INITIAL_STATE
+  );
   const value = { categoriesMap };
+
+  const setCategoriesMap = (categoryMap) => {
+    dispatch({
+      type: CATEGORIES_ACTION_TYPES.SET_CATEGORIES_MAP,
+      payload: categoryMap,
+    });
+  };
 
   useEffect(() => {
     const getCategoryMap = async () => {
