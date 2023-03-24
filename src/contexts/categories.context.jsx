@@ -1,8 +1,5 @@
 import { createContext, useEffect, useReducer } from "react";
-import {
-  getCategoriesAndDocuments,
-  // addCollectionAndDocument,
-} from "../utils/firebase/firebase.utils";
+import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils";
 
 const CategoriesContext = createContext({
   categoriesMap: {},
@@ -50,10 +47,6 @@ const CategoriesProvider = ({ children }) => {
     getCategoryMap();
   }, []);
 
-  // useEffect(() => {
-  //   addCollectionAndDocument("categories", SHOP_DATA, 'title');
-  // }, []);
-  // => Data will be imported to Firestore
   return (
     <CategoriesContext.Provider value={value}>
       {children}
