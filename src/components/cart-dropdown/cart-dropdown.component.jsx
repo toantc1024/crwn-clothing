@@ -5,21 +5,20 @@ import {
   EmptyMessage,
 } from "./cart-dropdown.styles.jsx";
 
-import { useContext } from "react";
-import { CartContext } from "../../contexts/cart.context";
 import CartItem from "../cart-item/cart-item.component";
 
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../contexts/cart.context";
+import { useContext } from "react";
 
 const CartDropdown = () => {
-  const { setIsCartOpen } = useContext(CartContext);
-
+  const { setIsCartOpen, cartItems } = useContext(CartContext);
   let navigate = useNavigate();
   const goToCheckoutHandler = () => {
     setIsCartOpen(false);
     navigate("/checkout");
   };
-  const { cartItems } = useContext(CartContext);
+
   return (
     <CartDropdownContainer>
       <CartItems>
