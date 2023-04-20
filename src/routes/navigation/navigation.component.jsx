@@ -15,7 +15,6 @@ import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector.js";
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
-  console.log(currentUser);
 
   const { isCartOpen } = useContext(CartContext);
 
