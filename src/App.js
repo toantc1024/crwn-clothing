@@ -14,19 +14,19 @@ import {
 } from "./utils/firebase/firebase.utils";
 
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChangedListener((user) => {
-  //     if (user) {
-  //       createUserDocumentFromAuth(user);
-  //     }
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
 
-  //     dispatch(setCurrentUser(user));
-  //   });
+      dispatch(setCurrentUser(user));
+    });
 
-  //   return unsubscribe;
-  // }, [dispatch]);
+    return unsubscribe;
+  }, [dispatch]);
   return (
     <Routes>
       <Route path="/" element={<Navigation />}>
