@@ -2,23 +2,7 @@ import { createAction } from "../../utils/reducer/reducer.utils";
 import { CART_ACTION_TYPES } from "./cart.types";
 
 const setCartItems = (cartItems) => {
-  const newCartCount = cartItems.reduce(
-    (total, cartItem) => total + cartItem.quantity,
-    0
-  );
-
-  const newCartTotal = cartItems.reduce(
-    (total, cartItem) => total + cartItem.quantity * cartItem.price,
-    0
-  );
-
-  const payload = {
-    cartItems,
-    cartCount: newCartCount,
-    cartTotal: newCartTotal,
-  };
-
-  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, payload);
+  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartItems);
 };
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
