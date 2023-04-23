@@ -1,4 +1,3 @@
-import { CartContext } from "../../contexts/cart.context";
 import "./checkout-item.styles.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems } from "../../store/cart/cart.selector";

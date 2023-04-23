@@ -6,13 +6,11 @@ import { selectCategoriesMap } from "../../store/categories/category.selector";
 import "./category.styles.scss";
 
 const Category = () => {
-  console.log("render/re-rendering category component");
   const { category } = useParams();
   const categoriesMap = useSelector(selectCategoriesMap);
   const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {
-    console.log("useEffect has been called for setProducts");
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap]);
 
