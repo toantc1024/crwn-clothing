@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import {
   NavigationContainer,
   LogoContainer,
