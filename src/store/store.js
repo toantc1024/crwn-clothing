@@ -14,7 +14,7 @@ import { loggerMiddleware } from "./middlewares/logger";
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["user"],
+  blacklist: ["user", "categories"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
