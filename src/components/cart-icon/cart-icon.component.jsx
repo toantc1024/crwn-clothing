@@ -11,15 +11,13 @@ import {
 } from "../../store/cart/cart.selector.js";
 
 const CartIcon = () => {
-  const cartCount = useSelector(selectCartCount);
-
   const dispatch = useDispatch();
-
+  const cartCount = useSelector(selectCartCount);
   const isCartOpen = useSelector(selectIsCartOpen);
-
   const toggleCartDropdown = () => {
     dispatch(setIsCartOpen(!isCartOpen));
   };
+
   return (
     <CartIconContainer onClick={() => toggleCartDropdown()}>
       <ShoppingIcon className="shopping-icon" />

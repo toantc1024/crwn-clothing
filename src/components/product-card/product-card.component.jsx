@@ -6,14 +6,9 @@ import { selectCartItems } from "../../store/cart/cart.selector";
 
 const ProductCard = ({ product }) => {
   const { id, name, imageUrl, price } = product;
-
   const dispatch = useDispatch();
-
   const cartItems = useSelector(selectCartItems);
-
-  const addProductToCart = () => {
-    dispatch(addItemToCart(cartItems, product));
-  };
+  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 
   return (
     <div key={id} className="product-card-container">
