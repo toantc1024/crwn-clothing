@@ -9,21 +9,12 @@ import {
 
 const CheckoutItem = ({ item }) => {
   const cartItems = useSelector(selectCartItems);
-
   const dispatch = useDispatch();
-
-  const clearItemHandler = () => {
-    dispatch(clearItemFromCart(cartItems, item));
-  };
-
-  const removeItemHandler = () => {
-    dispatch(removeItemToCart(cartItems, item));
-  };
-
-  const addItemHandler = () => {
-    dispatch(addItemToCart(cartItems, item));
-  };
+  const clearItemHandler = () => dispatch(clearItemFromCart(cartItems, item));
+  const removeItemHandler = () => dispatch(removeItemToCart(cartItems, item));
+  const addItemHandler = () => dispatch(addItemToCart(cartItems, item));
   const { name, price, imageUrl, quantity } = item;
+
   return (
     <div className="checkout-item-container">
       <div className="image-container">

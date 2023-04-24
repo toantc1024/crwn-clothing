@@ -12,11 +12,13 @@ import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth,
 } from "./utils/firebase/firebase.utils";
+import { setIsCartOpen } from "./store/cart/cart.action";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(setIsCartOpen(false));
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
         createUserDocumentFromAuth(user);
