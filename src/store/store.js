@@ -14,14 +14,13 @@ import { loggerMiddleware } from "./middlewares/logger";
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["user", "categories"],
+  whitelist: ["cart"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const middleWares = [
   process.env.NODE_ENV !== "production" && loggerMiddleware,
-  thunk,
 ].filter(Boolean);
 
 const composedEnhancer =
