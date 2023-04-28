@@ -9,7 +9,7 @@ export const fetchCategoriesStart = () =>
   createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START);
 
 export const fetchCategoriesSuccess = (categoriesArray) =>
-  createAction( 
+  createAction(
     CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS,
     categoriesArray
   );
