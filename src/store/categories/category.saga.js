@@ -4,6 +4,7 @@ import {
   fetchCategoriesFailed,
   fetchCategoriesSuccess,
 } from "./category.action";
+
 import CATEGORIES_ACTION_TYPES from "./category.types";
 
 export function* fetchCategoriesAsync() {
@@ -16,10 +17,13 @@ export function* fetchCategoriesAsync() {
 }
 
 export function* onFetchCategories() {
-  yield takeLatest(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START);
+  yield takeLatest(
+    CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START,
+    fetchCategoriesAsync
+  );
 }
 
 export function* categoriesSaga() {
-  yield all([]); //Pause til done
+  yield all([call(onFetchCategories)]); //Pause til done
   // all will run everything until everything is done!
 }
