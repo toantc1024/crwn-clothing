@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector.js";
 import { selectIsCartOpen } from "../../store/cart/cart.selector.js";
 import { signOutUser } from "../../utils/firebase/firebase.utils.js";
+import { signOutStart } from "../../store/user/user.action.js";
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
@@ -27,7 +28,7 @@ const Navigation = () => {
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
-            <NavLink as="span" onClick={() => signOutUser()}>
+            <NavLink as="span" onClick={() => dispatch(signOutStart())}>
               SIGN OUT
             </NavLink>
           ) : (
