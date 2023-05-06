@@ -13,7 +13,6 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector.js";
 import { selectIsCartOpen } from "../../store/cart/cart.selector.js";
-import { signOutUser } from "../../utils/firebase/firebase.utils.js";
 import { signOutStart } from "../../store/user/user.action.js";
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);

@@ -66,3 +66,12 @@ export const LoadingSpinner = styled.div`
     }
   }
 `;
+
+export const SuccessButton = styled(BaseButton)`
+  background-color: #4bb543;
+  color: white;
+  &:hover {
+    background-color: #4bb543;
+    border: none;
+  }
+`;
